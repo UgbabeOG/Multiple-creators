@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Film, Mail, User } from 'lucide-react';
+import { Film, Mail, User, Home, Video } from 'lucide-react'; // Added Home and Video icons
 import { Button } from '@/components/ui/button';
 
 export default function Navbar() {
@@ -11,9 +11,16 @@ export default function Navbar() {
           <Film className="w-7 h-7 text-accent" />
           Visionary Vault
         </Link>
-        <nav className="flex items-center gap-2 md:gap-4">
+        <nav className="flex items-center gap-1 md:gap-2">
           <Button variant="ghost" asChild>
-            <Link href="/" className="text-foreground hover:text-accent transition-colors">
+            <Link href="/" className="text-foreground hover:text-accent transition-colors flex items-center gap-1 md:gap-2">
+              <Home className="w-4 h-4" />
+              Home
+            </Link>
+          </Button>
+          <Button variant="ghost" asChild>
+            <Link href="/gallery" className="text-foreground hover:text-accent transition-colors flex items-center gap-1 md:gap-2">
+               <Video className="w-4 h-4" /> {/* Changed icon */}
               Gallery
             </Link>
           </Button>
