@@ -19,7 +19,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="bg-card border-b border-border sticky top-0 z-50 shadow-md">
+    <header className="bg-card/70 backdrop-blur-lg border-b border-border/30 sticky top-0 z-50 shadow-md">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" className="text-xl sm:text-2xl font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-2">
           <Film className="w-7 h-7 text-accent" />
