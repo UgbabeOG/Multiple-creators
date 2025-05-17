@@ -18,7 +18,7 @@ const TwitterIcon = () => (
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="bg-card border-t border-border mt-auto py-6 shadow-inner">
+    <footer className="bg-card/70 backdrop-blur-lg border-t border-border/30 mt-auto py-6 shadow-inner">
       <div className="container mx-auto px-4 text-center text-muted-foreground">
         <div className="flex justify-center items-center gap-2 mb-2">
           <Copyright className="w-4 h-4" />
