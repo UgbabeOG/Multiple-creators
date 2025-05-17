@@ -1,6 +1,8 @@
+
 "use client";
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react'; // Changed from 'react-dom' and renamed hook
+import { useFormStatus } from 'react-dom'; // useFormStatus remains in react-dom for now
 import { useEffect } from 'react';
 import { submitContactForm, type ContactFormState } from '@/app/contact/actions';
 import { Button } from '@/components/ui/button';
@@ -31,7 +33,7 @@ function SubmitButton() {
 
 export default function ContactForm() {
   const initialState: ContactFormState = { message: null, errors: {}, success: false };
-  const [state, dispatch] = useFormState(submitContactForm, initialState);
+  const [state, dispatch] = useActionState(submitContactForm, initialState); // Updated hook
   const { toast } = useToast();
 
   useEffect(() => {
@@ -41,7 +43,7 @@ export default function ContactForm() {
         description: state.message,
         variant: "default",
       });
-      // Consider resetting the form here if needed, though useFormState doesn't directly support it.
+      // Consider resetting the form here if needed, though useActionState doesn't directly support it.
       // A common pattern is to use a key prop on the form to force remount, or manage fields with useState.
       // For simplicity, we're not resetting fields automatically.
     } else if (!state.success && state.message && !state.errors) { // General error without field specifics
