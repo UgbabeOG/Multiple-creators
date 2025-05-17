@@ -83,7 +83,7 @@ export default function LandingPage() {
             <CarouselContent>
               {featuredStills.map((still, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
+                  <div className="p-2"> {/* Increased padding */}
                     <div className="aspect-video relative rounded-lg overflow-hidden shadow-md">
                       <Image
                         src={still.src}
