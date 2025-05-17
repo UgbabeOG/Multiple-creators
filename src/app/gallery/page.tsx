@@ -12,7 +12,7 @@ export default function VideoGalleryPage() {
   const hints = ["galaxy space", "neon city", "flower timelapse", "city street"];
   return (
     <div className="space-y-8">
-      <h1 className="text-4xl font-bold text-center text-primary tracking-tight">Video Gallery</h1>
+      <h1 className="text-3xl sm:text-4xl font-bold text-center text-primary tracking-tight">Video Gallery</h1>
       <p className="text-center text-lg text-muted-foreground max-w-2xl mx-auto">
         Discover a diverse portfolio of music videos, each crafted with a unique vision and artistic flair. Click on any video to learn more and see AI-generated insights.
       </p>

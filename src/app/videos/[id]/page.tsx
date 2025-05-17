@@ -48,7 +48,7 @@ export default async function VideoDetailsPage({ params }: { params: { id: strin
 
   return (
     <div className="space-y-8">
-      <h1 className="text-4xl font-bold text-primary tracking-tight">{video.title}</h1>
+      <h1 className="text-3xl sm:text-4xl font-bold text-primary tracking-tight">{video.title}</h1>
       {video.artist && <p className="text-xl text-muted-foreground -mt-6">By {video.artist}</p>}
 
       <Card className="overflow-hidden shadow-lg">
@@ -82,7 +82,7 @@ export default async function VideoDetailsPage({ params }: { params: { id: strin
       {video.initialDescription && (
         <Card>
           <CardHeader>
-            <CardTitle>Original Description</CardTitle>
+            <CardTitle>Original Description</CardTitle> {/* Font size handled by CardTitle component */}
           </CardHeader>
           <CardContent>
             <CardDescription className="text-base leading-relaxed">{video.initialDescription}</CardDescription>

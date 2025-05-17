@@ -36,7 +36,7 @@ export default function LandingPage() {
       </section>
 
       <section className="max-w-3xl space-y-6 px-4">
-        <h2 className="text-3xl font-semibold text-primary tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-primary tracking-tight">
           Where Music Meets Visual Storytelling
         </h2>
         <p className="text-lg text-muted-foreground leading-relaxed">
@@ -57,7 +57,7 @@ export default function LandingPage() {
       </section>
 
       <section className="w-full max-w-5xl pt-8">
-          <h3 className="text-2xl font-semibold text-center mb-8 text-primary">Featured Stills</h3>
+          <h3 className="text-xl sm:text-2xl font-semibold text-center mb-8 text-primary">Featured Stills</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="aspect-square relative rounded-lg overflow-hidden shadow-md">
               <Image src="https://placehold.co/400x400.png?a=1" alt="Featured still 1" layout="fill" objectFit="cover" data-ai-hint="music video still"/>

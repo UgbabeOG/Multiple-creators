@@ -13,7 +13,7 @@ export default function AboutPage() {
   return (
     <div className="space-y-12">
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-primary tracking-tight">Meet the Creators</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold text-primary tracking-tight">Meet the Creators</h1>
         <p className="mt-2 text-lg text-muted-foreground max-w-2xl mx-auto">
           Delve into the story and artistic philosophy of our creators.
         </p>
@@ -33,7 +33,7 @@ export default function AboutPage() {
           </div>
           <div className="md:w-2/3">
             <CardHeader className="p-6">
-              <CardTitle className="text-3xl flex items-center gap-2">
+              <CardTitle className="flex items-center gap-2"> {/* Font size handled by CardTitle component */}
                 <Users className="w-8 h-8 text-accent" />
                 Multiple Creators Team
               </CardTitle>

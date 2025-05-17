@@ -12,7 +12,7 @@ export default function ContactPage() {
   return (
     <div className="space-y-12">
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-primary tracking-tight">Get In Touch</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold text-primary tracking-tight">Get In Touch</h1>
         <p className="mt-2 text-lg text-muted-foreground max-w-2xl mx-auto">
           Have a project in mind or want to collaborate? Reach out through the form below or contact us directly.
         </p>
@@ -21,7 +21,7 @@ export default function ContactPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         <Card className="shadow-lg">
           <CardHeader>
-            <CardTitle className="text-2xl">Contact Form</CardTitle>
+            <CardTitle>Contact Form</CardTitle> {/* Font size handled by CardTitle component */}
             <CardDescription>Send us a message, and we'll get back to you shortly.</CardDescription>
           </CardHeader>
           <CardContent>
@@ -31,7 +31,7 @@ export default function ContactPage() {
 
         <Card className="shadow-lg bg-card/50">
           <CardHeader>
-            <CardTitle className="text-2xl">Direct Contact</CardTitle>
+            <CardTitle>Direct Contact</CardTitle> {/* Font size handled by CardTitle component */}
             <CardDescription>You can also reach us through these channels.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6 text-foreground">
