@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import { Film, Mail, Users, Home, Video, Menu as MenuIcon } from 'lucide-react'; // Renamed Menu to MenuIcon to avoid conflict
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet'; // Added SheetTitle
 import { useState } from 'react';
 
 export default function Navbar() {
@@ -47,9 +47,10 @@ export default function Navbar() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] sm:w-[320px]">
+              <SheetTitle className="sr-only">Main Menu</SheetTitle> {/* Visually hidden title for accessibility */}
               <div className="p-4">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="text-lg font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-2 mb-6"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
