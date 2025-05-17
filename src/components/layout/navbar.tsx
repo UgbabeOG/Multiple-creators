@@ -2,10 +2,11 @@
 "use client";
 
 import Link from 'next/link';
-import { Film, Mail, Users, Home, Video, Menu as MenuIcon } from 'lucide-react'; // Renamed Menu to MenuIcon to avoid conflict
+import { Film, Mail, Users, Home, Video, Menu as MenuIcon } from 'lucide-react'; 
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet'; // Added SheetTitle
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet'; 
 import { useState } from 'react';
+import { ThemeToggleButton } from '@/components/theme-toggle-button';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -25,7 +26,7 @@ export default function Navbar() {
           Multiple Creators
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation & Theme Toggle */}
         <nav className="hidden md:flex items-center gap-1 md:gap-2">
           {navLinks.map(link => (
             <Button variant="ghost" asChild key={link.href}>
@@ -35,10 +36,12 @@ export default function Navbar() {
               </Link>
             </Button>
           ))}
+          <ThemeToggleButton />
         </nav>
 
-        {/* Mobile Navigation Trigger */}
-        <div className="md:hidden">
+        {/* Mobile Navigation Trigger & Theme Toggle */}
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggleButton />
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -47,7 +50,7 @@ export default function Navbar() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] sm:w-[320px]">
-              <SheetTitle className="sr-only">Main Menu</SheetTitle> {/* Visually hidden title for accessibility */}
+              <SheetTitle className="sr-only">Main Menu</SheetTitle> 
               <div className="p-4">
                 <Link
                   href="/"
