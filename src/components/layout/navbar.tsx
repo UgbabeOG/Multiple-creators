@@ -1,5 +1,6 @@
+
 import Link from 'next/link';
-import { Film, Mail } from 'lucide-react';
+import { Film, Mail, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function Navbar() {
@@ -10,14 +11,20 @@ export default function Navbar() {
           <Film className="w-7 h-7 text-accent" />
           Visionary Vault
         </Link>
-        <nav className="flex items-center gap-4">
+        <nav className="flex items-center gap-2 md:gap-4">
           <Button variant="ghost" asChild>
             <Link href="/" className="text-foreground hover:text-accent transition-colors">
               Gallery
             </Link>
           </Button>
           <Button variant="ghost" asChild>
-            <Link href="/contact" className="text-foreground hover:text-accent transition-colors flex items-center gap-2">
+            <Link href="/about" className="text-foreground hover:text-accent transition-colors flex items-center gap-1 md:gap-2">
+              <User className="w-4 h-4" />
+              About
+            </Link>
+          </Button>
+          <Button variant="ghost" asChild>
+            <Link href="/contact" className="text-foreground hover:text-accent transition-colors flex items-center gap-1 md:gap-2">
               <Mail className="w-4 h-4" />
               Contact
             </Link>
