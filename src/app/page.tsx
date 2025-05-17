@@ -4,11 +4,26 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel"
 
 export const metadata: Metadata = {
   title: 'Multiple Creators - Crafting Cinematic Music Videos',
   description: 'Welcome to Multiple Creators, the home of passionate music video directors. Discover unique visual stories and creative filmmaking.',
 };
+
+const featuredStills = [
+  { src: "https://placehold.co/600x400.png?text=Still+1", alt: "Featured still 1", hint: "music video still" },
+  { src: "https://placehold.co/600x400.png?text=Still+2", alt: "Featured still 2", hint: "cinematic shot" },
+  { src: "https://placehold.co/600x400.png?text=Still+3", alt: "Featured still 3", hint: "artistic visual" },
+  { src: "https://placehold.co/600x400.png?text=Still+4", alt: "Featured still 4", hint: "director vision" },
+  { src: "https://placehold.co/600x400.png?text=Still+5", alt: "Featured still 5", hint: "creative lighting" },
+];
 
 export default function LandingPage() {
   return (
@@ -56,22 +71,35 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="w-full max-w-5xl pt-8">
+      <section className="w-full max-w-3xl pt-8">
           <h3 className="text-xl sm:text-2xl font-semibold text-center mb-8 text-primary">Featured Stills</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="aspect-square relative rounded-lg overflow-hidden shadow-md">
-              <Image src="https://placehold.co/400x400.png?a=1" alt="Featured still 1" layout="fill" objectFit="cover" data-ai-hint="music video still"/>
-            </div>
-            <div className="aspect-square relative rounded-lg overflow-hidden shadow-md">
-              <Image src="https://placehold.co/400x400.png?a=2" alt="Featured still 2" layout="fill" objectFit="cover" data-ai-hint="cinematic shot"/>
-            </div>
-            <div className="aspect-square relative rounded-lg overflow-hidden shadow-md">
-              <Image src="https://placehold.co/400x400.png?a=3" alt="Featured still 3" layout="fill" objectFit="cover" data-ai-hint="artistic visual"/>
-            </div>
-            <div className="aspect-square relative rounded-lg overflow-hidden shadow-md">
-              <Image src="https://placehold.co/400x400.png?a=4" alt="Featured still 4" layout="fill" objectFit="cover" data-ai-hint="director vision"/>
-            </div>
-          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {featuredStills.map((still, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <div className="aspect-video relative rounded-lg overflow-hidden shadow-md">
+                      <Image
+                        src={still.src}
+                        alt={still.alt}
+                        layout="fill"
+                        objectFit="cover"
+                        data-ai-hint={still.hint}
+                      />
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
       </section>
     </div>
   );
