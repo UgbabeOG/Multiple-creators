@@ -19,7 +19,7 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <Card className="shadow-lg overflow-hidden">
+      <Card className="shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
         <div className="md:flex">
           <div className="md:w-1/3 relative min-h-[300px] md:min-h-0">
             <Image
@@ -27,7 +27,6 @@ export default function AboutPage() {
               alt="Team of Creators"
               layout="fill"
               objectFit="cover"
-              className="data-ai-hint='team creative'"
               data-ai-hint="team creative"
             />
           </div>

@@ -18,11 +18,11 @@ export const metadata: Metadata = {
 };
 
 const featuredStills = [
-  { src: "https://placehold.co/600x400.png?text=Still+1", alt: "Featured still 1", hint: "music video still" },
-  { src: "https://placehold.co/600x400.png?text=Still+2", alt: "Featured still 2", hint: "cinematic shot" },
-  { src: "https://placehold.co/600x400.png?text=Still+3", alt: "Featured still 3", hint: "artistic visual" },
-  { src: "https://placehold.co/600x400.png?text=Still+4", alt: "Featured still 4", hint: "director vision" },
-  { src: "https://placehold.co/600x400.png?text=Still+5", alt: "Featured still 5", hint: "creative lighting" },
+  { src: "https://placehold.co/600x400.png", alt: "Featured still 1", hint: "music video still" },
+  { src: "https://placehold.co/600x400.png", alt: "Featured still 2", hint: "cinematic shot" },
+  { src: "https://placehold.co/600x400.png", alt: "Featured still 3", hint: "artistic visual" },
+  { src: "https://placehold.co/600x400.png", alt: "Featured still 4", hint: "director vision" },
+  { src: "https://placehold.co/600x400.png", alt: "Featured still 5", hint: "creative lighting" },
 ];
 
 export default function LandingPage() {
@@ -40,17 +40,17 @@ export default function LandingPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
           <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-primary-foreground">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight !text-white [text-shadow:_0_2px_4px_rgb(0_0_0_/_40%)]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight !text-white [text-shadow:_0_2px_4px_rgb(0_0_0_/_40%)] animate-in fade-in slide-in-from-top-8 duration-1000">
               Multiple Creators
             </h1>
-            <p className="mt-4 text-lg sm:text-xl md:text-2xl max-w-2xl !text-white/90 [text-shadow:_0_1px_3px_rgb(0_0_0_/_30%)]">
+            <p className="mt-4 text-lg sm:text-xl md:text-2xl max-w-2xl !text-white/90 [text-shadow:_0_1px_3px_rgb(0_0_0_/_30%)] animate-in fade-in slide-in-from-top-10 duration-1000 delay-200">
               Crafting Cinematic Experiences, One Frame at a Time.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="max-w-3xl space-y-6 px-4">
+      <section className="max-w-3xl space-y-6 px-4 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-500">
         <h2 className="text-2xl sm:text-3xl font-semibold text-primary tracking-tight">
           Where Music Meets Visual Storytelling
         </h2>

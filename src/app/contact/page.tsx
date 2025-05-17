@@ -1,3 +1,4 @@
+
 import ContactForm from '@/components/contact-form';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Phone, MapPin } from 'lucide-react';
@@ -19,7 +20,7 @@ export default function ContactPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-        <Card className="shadow-lg">
+        <Card className="shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1">
           <CardHeader>
             <CardTitle>Contact Form</CardTitle> {/* Font size handled by CardTitle component */}
             <CardDescription>Send us a message, and we'll get back to you shortly.</CardDescription>
@@ -29,7 +30,7 @@ export default function ContactPage() {
           </CardContent>
         </Card>
 
-        <Card className="shadow-lg bg-card/50">
+        <Card className="shadow-lg bg-card/50 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1">
           <CardHeader>
             <CardTitle>Direct Contact</CardTitle> {/* Font size handled by CardTitle component */}
             <CardDescription>You can also reach us through these channels.</CardDescription>
