@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Visionary Vault - Crafting Cinematic Music Videos',
-  description: 'Welcome to Visionary Vault, the home of a passionate music video director. Discover unique visual stories and creative filmmaking.',
+  title: 'Multiple Creators - Crafting Cinematic Music Videos',
+  description: 'Welcome to Multiple Creators, the home of passionate music video directors. Discover unique visual stories and creative filmmaking.',
 };
 
 export default function LandingPage() {
@@ -26,7 +26,7 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
           <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-primary-foreground">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight !text-white [text-shadow:_0_2px_4px_rgb(0_0_0_/_40%)]">
-              Visionary Vault
+              Multiple Creators
             </h1>
             <p className="mt-4 text-lg sm:text-xl md:text-2xl max-w-2xl !text-white/90 [text-shadow:_0_1px_3px_rgb(0_0_0_/_30%)]">
               Crafting Cinematic Experiences, One Frame at a Time.
@@ -40,7 +40,7 @@ export default function LandingPage() {
           Where Music Meets Visual Storytelling
         </h2>
         <p className="text-lg text-muted-foreground leading-relaxed">
-          Welcome to the portfolio of a music video director dedicated to transforming sound into unforgettable visual narratives. Explore a collection of works that push creative boundaries and captivate audiences.
+          Welcome to the portfolio of music video creators dedicated to transforming sound into unforgettable visual narratives. Explore a collection of works that push creative boundaries and captivate audiences.
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
           <Button asChild size="lg" className="shadow-lg hover:shadow-xl transition-shadow">
@@ -50,7 +50,7 @@ export default function LandingPage() {
           </Button>
           <Button variant="outline" asChild size="lg" className="shadow-lg hover:shadow-xl transition-shadow">
             <Link href="/about">
-              Learn About The Director <ArrowRight className="ml-2" />
+              Learn About The Creators <ArrowRight className="ml-2" />
             </Link>
           </Button>
         </div>

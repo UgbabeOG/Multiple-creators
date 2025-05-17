@@ -4,8 +4,8 @@ import VideoGalleryItem from '@/components/video-gallery-item';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Video Gallery - Visionary Vault',
-  description: 'Explore a curated collection of music videos by a visionary director.',
+  title: 'Video Gallery - Multiple Creators',
+  description: 'Explore a curated collection of music videos by Multiple Creators.',
 };
 
 export default function VideoGalleryPage() {

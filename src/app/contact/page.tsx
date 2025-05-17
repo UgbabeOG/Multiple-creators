@@ -4,8 +4,8 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Us - Visionary Vault',
-  description: 'Get in touch for collaborations, inquiries, or to discuss your next project.',
+  title: 'Contact Us - Multiple Creators',
+  description: 'Get in touch for collaborations, inquiries, or to discuss your next project with Multiple Creators.',
 };
 
 export default function ContactPage() {
@@ -39,8 +39,8 @@ export default function ContactPage() {
               <Mail className="w-6 h-6 text-accent" />
               <div>
                 <h3 className="font-semibold">Email</h3>
-                <a href="mailto:contact@visionaryvault.com" className="hover:text-accent transition-colors">
-                  contact@visionaryvault.com
+                <a href="mailto:contact@multiplecreators.com" className="hover:text-accent transition-colors">
+                  contact@multiplecreators.com
                 </a>
               </div>
             </div>
@@ -57,7 +57,7 @@ export default function ContactPage() {
               <MapPin className="w-6 h-6 text-accent" />
               <div>
                 <h3 className="font-semibold">Studio (By Appointment)</h3>
-                <p>123 Visionary Lane, Creative City, CA 90210</p>
+                <p>123 Creators Lane, Creative City, CA 90210</p>
               </div>
             </div>
           </CardContent>

@@ -19,12 +19,12 @@ export async function generateMetadata(
 
   if (!video) {
     return {
-      title: 'Video Not Found - Visionary Vault',
+      title: 'Video Not Found - Multiple Creators',
     };
   }
 
   return {
-    title: `${video.title} - Visionary Vault`,
+    title: `${video.title} - Multiple Creators`,
     description: video.initialDescription || `Details for the music video ${video.title}.`,
   };
 }

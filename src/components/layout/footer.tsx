@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 text-center text-muted-foreground">
         <div className="flex justify-center items-center gap-2 mb-2">
           <Copyright className="w-4 h-4" />
-          <p>{currentYear} Visionary Vault. All rights reserved.</p>
+          <p>{currentYear} Multiple Creators. All rights reserved.</p>
         </div>
         <div className="flex justify-center gap-4">
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-accent transition-colors">

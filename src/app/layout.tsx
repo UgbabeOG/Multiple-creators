@@ -10,8 +10,8 @@ const geistSans = GeistSans;
 const geistMono = GeistMono;
 
 export const metadata: Metadata = {
-  title: 'Visionary Vault - Music Video Director Portfolio',
-  description: 'The official portfolio of a visionary music video director, showcasing a curated collection of works and AI-enhanced video descriptions.',
+  title: 'Multiple Creators - Music Video Director Portfolio',
+  description: 'The official portfolio for Multiple Creators, showcasing a curated collection of works and AI-enhanced video descriptions.',
 };
 
 export default function RootLayout({
