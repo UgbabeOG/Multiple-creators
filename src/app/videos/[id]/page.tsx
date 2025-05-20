@@ -60,7 +60,7 @@ export default async function VideoDetailsPage({ params }: { params: { id: strin
                 height="100%"
                 src={video.videoUrl}
                 title={video.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture web-share" referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
                 className="border-0"
               ></iframe>
