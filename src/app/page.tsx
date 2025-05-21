@@ -146,9 +146,7 @@ export default function LandingPage() {
                     objectFit="cover" // Use prop instead of style
                     className="rounded-2xl p-1"
                     data-ai-hint={still.hint}
-                    priority={index === 0} // Prioritize the first image for initial load
-                    // Sizes based on the max-w-* classes of the parent div
-                    // max-w-xs (320px), sm:max-w-sm (384px), md:max-w-md (448px), lg:max-w-lg (512px), xl:max-w-xl (576px)
+                    priority={index === 0} // Load first image first
                     sizes="(max-width: 639px) 320px, (max-width: 767px) 384px, (max-width: 1023px) 448px, (max-width: 1279px) 512px, 576px"
                   />
                 </div>
