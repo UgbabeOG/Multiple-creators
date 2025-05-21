@@ -149,7 +149,7 @@ export default function LandingPage() {
                     alt={still.alt}
                     fill
                     objectFit="cover" // Use prop instead of style
-                    className="rounded-2xl"
+                    className="rounded-2xl max-h-min"
                     data-ai-hint={still.hint}
                     // Sizes based on the max-w-* classes of the parent div
                     // max-w-xs (320px), sm:max-w-sm (384px), md:max-w-md (448px), lg:max-w-lg (512px), xl:max-w-xl (576px)
