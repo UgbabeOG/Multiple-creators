@@ -1,28 +1,63 @@
-
-import Image from 'next/image';
-import Link from 'next/link';
-import type { Metadata } from 'next';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, PlayCircle } from 'lucide-react';
+import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, PlayCircle } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
 
 export const metadata: Metadata = {
-  title: 'Multiple Creators - Crafting Cinematic Music Videos',
-  description: 'Welcome to Multiple Creators, the home of passionate music video directors. Discover unique visual stories and creative filmmaking.',
+  title: "Multiple Creators - Crafting Cinematic Music Videos",
+  description:
+    "Welcome to Multiple Creators, the home of passionate music video directors. Discover unique visual stories and creative filmmaking.",
 };
 
 const featuredStills = [
-  { src: "https://placehold.co/600x400.png", alt: "Featured still 1", hint: "music video still" },
-  { src: "https://placehold.co/600x400.png", alt: "Featured still 2", hint: "cinematic shot" },
-  { src: "https://placehold.co/600x400.png", alt: "Featured still 3", hint: "artistic visual" },
-  { src: "https://placehold.co/600x400.png", alt: "Featured still 4", hint: "director vision" },
-  { src: "https://placehold.co/600x400.png", alt: "Featured still 5", hint: "creative lighting" },
+  {
+    src: "/IMG_2505.JPG",
+    alt: "Featured still 1",
+    hint: "music video still",
+  },
+  {
+    src: "/IMG_2506.JPG",
+    alt: "Featured still 2",
+    hint: "cinematic shot",
+  },
+  {
+    src: "/IMG_3666.JPG",
+    alt: "Featured still 3",
+    hint: "artistic visual",
+  },
+  {
+    src: "/IMG_3678.JPG",
+    alt: "Featured still 4",
+    hint: "director vision",
+  },
+  {
+    src: "/IMG_3688.JPG",
+    alt: "Featured still 5",
+    hint: "creative lighting",
+  },{
+    src: "/IMG_9043.JPG",
+    alt: "Featured still 8",
+    hint: "creative lighting",
+  },
+  {
+    src: "/IMG_6810.JPG",
+    alt: "Featured still 6",
+    hint: "creative lighting",
+  },
+  {
+    src: "/IMG_8925.JPG",
+    alt: "Featured still 7",
+    hint: "creative lighting",
+  },
+  
 ];
 
 export default function LandingPage() {
@@ -31,7 +66,7 @@ export default function LandingPage() {
       <section className="w-full max-w-5xl">
         <div className="relative aspect-[16/7] w-full overflow-hidden rounded-xl shadow-2xl">
           <Image
-            src="https://placehold.co/1200x525.png"
+            src="/IMG_3666.JPG"
             alt="Abstract background representing creative vision"
             layout="fill"
             objectFit="cover"
@@ -55,15 +90,27 @@ export default function LandingPage() {
           Where Music Meets Visual Storytelling
         </h2>
         <p className="text-lg text-muted-foreground leading-relaxed">
-          Welcome to the portfolio of music video creators dedicated to transforming sound into unforgettable visual narratives. Explore a collection of works that push creative boundaries and captivate audiences.
+          Welcome to the portfolio of music video creators dedicated to
+          transforming sound into unforgettable visual narratives. Explore a
+          collection of works that push creative boundaries and captivate
+          audiences.
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
-          <Button asChild size="lg" className="shadow-lg hover:shadow-xl transition-shadow">
+          <Button
+            asChild
+            size="lg"
+            className="shadow-lg hover:shadow-xl transition-shadow"
+          >
             <Link href="/gallery">
               <PlayCircle className="mr-2" /> Explore Video Gallery
             </Link>
           </Button>
-          <Button variant="outline" asChild size="lg" className="shadow-lg hover:shadow-xl transition-shadow">
+          <Button
+            variant="outline"
+            asChild
+            size="lg"
+            className="shadow-lg hover:shadow-xl transition-shadow"
+          >
             <Link href="/about">
               Learn About The Creators <ArrowRight className="ml-2" />
             </Link>
@@ -72,34 +119,38 @@ export default function LandingPage() {
       </section>
 
       <section className="w-full max-w-3xl pt-8">
-          <h3 className="text-xl sm:text-2xl font-semibold text-center mb-8 text-primary">Featured Stills</h3>
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent>
-              {featuredStills.map((still, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-2"> {/* Increased padding */}
-                    <div className="aspect-video relative rounded-lg overflow-hidden shadow-md">
-                      <Image
-                        src={still.src}
-                        alt={still.alt}
-                        layout="fill"
-                        objectFit="cover"
-                        data-ai-hint={still.hint}
-                      />
-                    </div>
+        <h3 className="text-xl sm:text-2xl font-semibold text-center mb-8 text-primary">
+          Featured Stills
+        </h3>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+        >
+          <CarouselContent>
+            {featuredStills.map((still, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-4">
+                  {" "}
+                  {/* Increased padding */}
+                  <div className="aspect-video relative rounded-lg p-32 overflow-hidden shadow-md">
+                    <Image 
+                      src={still.src}
+                      alt={still.alt}
+                      layout="fill"
+                      objectFit="cover"
+                      data-ai-hint={still.hint}
+                    />
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </section>
     </div>
   );

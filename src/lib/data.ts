@@ -35,9 +35,9 @@ export const videos: Video[] = [
     contentSummary:
       "A retro-futuristic cityscape at night, filled with neon lights, fast cars, and a mysterious protagonist. The music is a driving synthwave beat.",
     directorStyle:
-      "Fast-paced editing, strong atmospheric lighting, inspired by 80s sci-fi cinema.",
+      "Fast-paced editing, strong atmospheric lighting, inspired by 90s romance cinema.",
     initialDescription:
-      "Dive into 'Its Okay', a high-octane tribute to synthwave aesthetics and classic sci-fi. A visual feast of light and motion.",
+      "Dive into 'Its Okay', a high-octane tribute to synthwave aesthetics and classic romance movies. A visual feast of light and motion.",
   },
   {
     id: "yourside",
