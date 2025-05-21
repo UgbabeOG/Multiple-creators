@@ -23,7 +23,7 @@ export default function AboutPage() {
         <div className="md:flex">
           <div className="md:w-1/3 relative min-h-[300px] md:min-h-0">
             <Image
-              src="https://placehold.co/400x500.png"
+              src="/ghost.jpg"
               alt="Team of Creators"
               layout="fill"
               objectFit="cover"

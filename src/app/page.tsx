@@ -1,21 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, PlayCircle } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "@/components/ui/carousel";
-
-export const metadata: Metadata = {
-  title: "Multiple Creators - Crafting Cinematic Music Videos",
-  description:
-    "Welcome to Multiple Creators, the home of passionate music video directors. Discover unique visual stories and creative filmmaking.",
-};
+import { useEffect, useRef, useState } from "react";
 
 const featuredStills = [
   {
@@ -42,7 +31,8 @@ const featuredStills = [
     src: "/IMG_3688.JPG",
     alt: "Featured still 5",
     hint: "creative lighting",
-  },{
+  },
+  {
     src: "/IMG_9043.JPG",
     alt: "Featured still 8",
     hint: "creative lighting",
@@ -57,10 +47,25 @@ const featuredStills = [
     alt: "Featured still 7",
     hint: "creative lighting",
   },
-  
 ];
 
 export default function LandingPage() {
+  // Carousel auto-slide logic
+  const [current, setCurrent] = useState(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const slideCount = featuredStills.length;
+
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slideCount);
+    }, 3500);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [slideCount]);
+
+  const goToSlide = (idx: number) => setCurrent(idx);
+
   return (
     <div className="flex flex-col items-center justify-center text-center space-y-12 py-8 md:py-16">
       <section className="w-full max-w-5xl">
@@ -72,6 +77,7 @@ export default function LandingPage() {
             objectFit="cover"
             priority
             data-ai-hint="abstract creative"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
           <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-primary-foreground">
@@ -122,35 +128,53 @@ export default function LandingPage() {
         <h3 className="text-xl sm:text-2xl font-semibold text-center mb-8 text-primary">
           Featured Stills
         </h3>
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
-        >
-          <CarouselContent>
+        <div className="w-full overflow-hidden">
+          <div
+            className="flex transition-transform duration-700 ease-in-out"
+            style={{
+              transform: `translateX(-${current * (100 / featuredStills.length)}%)`,
+              width: `${featuredStills.length * 100}%`,
+            }}
+          >
             {featuredStills.map((still, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-4">
-                  {" "}
-                  {/* Increased padding */}
-                  <div className="aspect-video relative rounded-lg p-32 overflow-hidden shadow-md">
-                    <Image 
-                      src={still.src}
-                      alt={still.alt}
-                      layout="fill"
-                      objectFit="cover"
-                      data-ai-hint={still.hint}
-                    />
-                  </div>
+              <div
+                key={index}
+                // Removed md:basis-1/2, lg:basis-1/3, and w-full as they conflict with the single-item slide logic
+                className="flex-shrink-0 flex items-center justify-center p-2"
+                style={{ width: `${100 / featuredStills.length}%` }}
+              >
+                <div className="relative aspect-[4/3] w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl bg-gradient-to-br from-[#211A2E] via-[#673AB7]/30 to-[#E91E63]/20 border-2 border-accent rounded-2xl overflow-hidden shadow-xl hover:scale-105 hover:shadow-2xl transition-transform duration-300">
+                  <Image
+                    src={still.src}
+                    alt={still.alt}
+                    fill
+                    objectFit="cover" // Use prop instead of style
+                    className="rounded-2xl"
+                    data-ai-hint={still.hint}
+                    // Sizes based on the max-w-* classes of the parent div
+                    // max-w-xs (320px), sm:max-w-sm (384px), md:max-w-md (448px), lg:max-w-lg (512px), xl:max-w-xl (576px)
+                    sizes="(max-width: 639px) 320px, (max-width: 767px) 384px, (max-width: 1023px) 448px, (max-width: 1279px) 512px, 576px"
+                  />
                 </div>
-              </CarouselItem>
+              </div>
             ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+          </div>
+          {/* Dots navigation */}
+          <div className="flex justify-center gap-2 mt-4">
+            {featuredStills.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => goToSlide(idx)}
+                className={`w-3 h-3 rounded-full border-2 transition-colors duration-200 ${
+                  current === idx
+                    ? "bg-accent border-accent"
+                    : "bg-muted border-border"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </section>
     </div>
   );
