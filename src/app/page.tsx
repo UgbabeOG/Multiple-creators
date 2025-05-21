@@ -71,7 +71,7 @@ export default function LandingPage() {
       <section className="w-full max-w-5xl">
         <div className="relative aspect-[16/7] w-full overflow-hidden rounded-xl shadow-2xl">
           <Image
-            src="/IMG_3666.JPG"
+            src="/IMG_3688.JPG"
             alt="Abstract background representing creative vision"
             layout="fill"
             objectFit="cover"
