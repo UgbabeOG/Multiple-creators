@@ -3,8 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, PlayCircle } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { ArrowRight, PlayCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 const featuredStills = [
   {
@@ -52,19 +52,15 @@ const featuredStills = [
 export default function LandingPage() {
   // Carousel auto-slide logic
   const [current, setCurrent] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const slideCount = featuredStills.length;
 
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slideCount);
-    }, 3500);
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [slideCount]);
+  const nextSlide = () => {
+    setCurrent((prev) => (prev === slideCount - 1 ? 0 : prev + 1));
+  };
 
-  const goToSlide = (idx: number) => setCurrent(idx);
+  const prevSlide = () => {
+    setCurrent((prev) => (prev === 0 ? slideCount - 1 : prev - 1));
+  };
 
   return (
     <div className="flex flex-col items-center justify-center text-center space-y-12 py-8 md:py-16">
@@ -128,20 +124,19 @@ export default function LandingPage() {
         <h3 className="text-xl sm:text-2xl font-semibold text-center mb-8 text-primary">
           Featured Stills
         </h3>
-        <div className="w-full overflow-hidden">
+        <div className="relative w-full overflow-hidden">
           <div
             className="flex transition-transform duration-700 ease-in-out"
             style={{
-              transform: `translateX(-${current * (100 / featuredStills.length)}%)`,
-              width: `${featuredStills.length * 100}%`,
+              transform: `translateX(-${current * (100 / slideCount)}%)`,
+              width: `${slideCount * 100}%`,
             }}
           >
             {featuredStills.map((still, index) => (
               <div
                 key={index}
-                // Removed md:basis-1/2, lg:basis-1/3, and w-full as they conflict with the single-item slide logic
                 className="flex-shrink-0 flex items-center justify-center p-2"
-                style={{ width: `${100 / featuredStills.length}%` }}
+                style={{ width: `${100 / slideCount}%` }}
               >
                 <div className="relative aspect-[4/3] w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl bg-gradient-to-br from-[#211A2E] via-[#673AB7]/30 to-[#E91E63]/20 border-2 border-accent rounded-2xl overflow-hidden shadow-xl hover:scale-105 hover:shadow-2xl transition-transform duration-300">
                   <Image
@@ -149,8 +144,9 @@ export default function LandingPage() {
                     alt={still.alt}
                     fill
                     objectFit="cover" // Use prop instead of style
-                    className="rounded-2xl max-h-min"
+                    className="rounded-2xl p-1"
                     data-ai-hint={still.hint}
+                    priority={index === 0} // Prioritize the first image for initial load
                     // Sizes based on the max-w-* classes of the parent div
                     // max-w-xs (320px), sm:max-w-sm (384px), md:max-w-md (448px), lg:max-w-lg (512px), xl:max-w-xl (576px)
                     sizes="(max-width: 639px) 320px, (max-width: 767px) 384px, (max-width: 1023px) 448px, (max-width: 1279px) 512px, 576px"
@@ -159,21 +155,29 @@ export default function LandingPage() {
               </div>
             ))}
           </div>
-          {/* Dots navigation */}
-          <div className="flex justify-center gap-2 mt-4">
-            {featuredStills.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => goToSlide(idx)}
-                className={`w-3 h-3 rounded-full border-2 transition-colors duration-200 ${
-                  current === idx
-                    ? "bg-accent border-accent"
-                    : "bg-muted border-border"
-                }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
-          </div>
+          {/* Buttons by the side */}
+          {slideCount > 1 && (
+            <>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={prevSlide}
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 bg-background/50 hover:bg-background/80 text-foreground rounded-full shadow-md"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={nextSlide}
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 bg-background/50 hover:bg-background/80 text-foreground rounded-full shadow-md"
+                aria-label="Next slide"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </Button>
+            </>
+          )}
         </div>
       </section>
     </div>
