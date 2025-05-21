@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, PlayCircle, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 const featuredStills = [
   {
@@ -50,18 +50,48 @@ const featuredStills = [
 ];
 
 export default function LandingPage() {
-  // Carousel auto-slide logic
   const [current, setCurrent] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
   const slideCount = featuredStills.length;
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const AUTOPLAY_INTERVAL = 3500; // milliseconds
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrent((prev) => (prev === slideCount - 1 ? 0 : prev + 1));
-  };
+  }, [slideCount]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrent((prev) => (prev === 0 ? slideCount - 1 : prev - 1));
-  };
+  }, [slideCount]);
 
+  useEffect(() => {
+    // Clear any existing interval first
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+
+    // Conditions to not start autoplay
+    if (isHovering || slideCount <= 1) {
+      return;
+    }
+
+    // Start new interval
+    // The 'current' dependency ensures this effect re-runs (and thus resets the timer)
+    // after a manual navigation, as 'current' would have changed.
+    intervalRef.current = setInterval(() => {
+      nextSlide();
+    }, AUTOPLAY_INTERVAL);
+
+    // Cleanup function to clear interval on component unmount or when dependencies change
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [current, slideCount, isHovering, nextSlide]);
+  
   return (
     <div className="flex flex-col items-center justify-center text-center space-y-12 py-8 md:py-16">
       <section className="w-full max-w-5xl">
@@ -124,7 +154,11 @@ export default function LandingPage() {
         <h3 className="text-xl sm:text-2xl font-semibold text-center mb-8 text-primary">
           Featured Stills
         </h3>
-        <div className="relative w-full overflow-hidden">
+        <div 
+          className="relative w-full overflow-hidden"
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+        >
           <div
             className="flex transition-transform duration-700 ease-in-out"
             style={{
@@ -160,7 +194,7 @@ export default function LandingPage() {
                 variant="outline"
                 size="icon"
                 onClick={prevSlide}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 bg-background/50 hover:bg-background/80 text-foreground rounded-full shadow-md"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 bg-background/50 hover:bg-accent hover:text-accent-foreground text-foreground rounded-full shadow-md transition-colors"
                 aria-label="Previous slide"
               >
                 <ChevronLeft className="h-6 w-6" />
@@ -169,7 +203,7 @@ export default function LandingPage() {
                 variant="outline"
                 size="icon"
                 onClick={nextSlide}
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 bg-background/50 hover:bg-background/80 text-foreground rounded-full shadow-md"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 bg-background/50 hover:bg-accent hover:text-accent-foreground text-foreground rounded-full shadow-md transition-colors"
                 aria-label="Next slide"
               >
                 <ChevronRight className="h-6 w-6" />
