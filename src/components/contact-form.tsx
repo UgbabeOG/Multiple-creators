@@ -101,8 +101,8 @@ export default function ContactForm() {
         />
       </div>
 
-      <Button type="submit" className="w-full" size="lg">
-        <Send className="mr-2 h-4 w-4" />
+      <Button type="submit" className="w-full hover:bg-purple-900 shadow-lg hover:shadow-xl transition-shadow" size="lg">
+        <Send className="mr-2 h-4 w-4 " />
         Send Message
       </Button>
     </form>
