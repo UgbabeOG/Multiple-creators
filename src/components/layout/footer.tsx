@@ -1,5 +1,4 @@
-
-import { Copyright, Instagram } from 'lucide-react';
+import { Copyright, Instagram } from "lucide-react";
 
 // Simple X/Twitter SVG icon
 const TwitterIcon = () => (
@@ -14,7 +13,6 @@ const TwitterIcon = () => (
   </svg>
 );
 
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
@@ -25,10 +23,22 @@ export default function Footer() {
           <p>{currentYear} Multiple Creators. All rights reserved.</p>
         </div>
         <div className="flex justify-center gap-4">
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-accent transition-colors">
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+            className="hover:text-accent transition-colors"
+          >
             <TwitterIcon />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-accent transition-colors">
+          <a
+            href="https://www.instagram.com/multiplecreators?igsh=eTAzeGdjd3VtZjN6&utm_source=qr "
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="hover:text-accent transition-colors"
+          >
             <Instagram className="w-5 h-5" />
           </a>
         </div>

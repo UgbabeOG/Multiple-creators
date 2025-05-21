@@ -1,121 +1,110 @@
-
 "use client";
 
-import { useActionState } from 'react'; // Changed from 'react-dom' and renamed hook
-import { useFormStatus } from 'react-dom'; // useFormStatus remains in react-dom for now
-import { useEffect } from 'react';
-import { submitContactForm, type ContactFormState } from '@/app/contact/actions';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { useToast } from '@/hooks/use-toast';
-import { Send, Loader2 } from 'lucide-react';
+import { useState, type FormEvent } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Send } from "lucide-react";
 
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button type="submit" disabled={pending} className="w-full" size="lg">
-      {pending ? (
-        <>
-          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          Sending...
-        </>
-      ) : (
-        <>
-          <Send className="mr-2 h-4 w-4" />
-          Send Message
-        </>
-      )}
-    </Button>
-  );
-}
+// Your email address where you want to receive messages
+const YOUR_RECEIVING_EMAIL = "your_email_address@example.com"; // <<<< IMPORTANT: Change this
 
 export default function ContactForm() {
-  const initialState: ContactFormState = { message: null, errors: {}, success: false };
-  const [state, dispatch] = useActionState(submitContactForm, initialState); // Updated hook
-  const { toast } = useToast();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
-  useEffect(() => {
-    if (state.success && state.message) {
-      toast({
-        title: "Success!",
-        description: state.message,
-        variant: "default",
-      });
-      // Consider resetting the form here if needed, though useActionState doesn't directly support it.
-      // A common pattern is to use a key prop on the form to force remount, or manage fields with useState.
-      // For simplicity, we're not resetting fields automatically.
-    } else if (!state.success && state.message && !state.errors) { // General error without field specifics
-       toast({
-        title: "Error",
-        description: state.message,
-        variant: "destructive",
-      });
-    }
-  }, [state, toast]);
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const subject = encodeURIComponent(`Contact Form Submission from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+
+    const mailtoLink = `mailto:${YOUR_RECEIVING_EMAIL}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+
+    // Optionally, provide feedback to the user and reset form
+    setSubmitted(true);
+    // setName('');
+    // setEmail('');
+    // setMessage('');
+    // You might want to show a small message like "Your email client should open..."
+    // For simplicity, we'll just rely on the email client opening.
+  };
+
+  if (submitted) {
+    return (
+      <div className="text-center p-4 border border-dashed rounded-md">
+        <p className="text-lg font-medium">Thank you!</p>
+        <p className="text-muted-foreground">
+          Your email client should have opened with your message.
+        </p>
+        <Button
+          onClick={() => setSubmitted(false)}
+          variant="link"
+          className="mt-2"
+        >
+          Send another message
+        </Button>
+      </div>
+    );
+  }
 
   return (
-    <form action={dispatch} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <Label htmlFor="name" className="mb-1 block">Full Name</Label>
+        <Label htmlFor="name" className="mb-1 block">
+          Full Name
+        </Label>
         <Input
           id="name"
           name="name"
           type="text"
           placeholder="Your Name"
           required
-          aria-describedby="name-error"
-          className={state.errors?.name ? 'border-destructive' : ''}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
-        {state.errors?.name && (
-          <p id="name-error" className="text-sm text-destructive mt-1">
-            {state.errors.name.join(', ')}
-          </p>
-        )}
       </div>
 
       <div>
-        <Label htmlFor="email" className="mb-1 block">Email Address</Label>
+        <Label htmlFor="email" className="mb-1 block">
+          Email Address
+        </Label>
         <Input
           id="email"
           name="email"
           type="email"
           placeholder="your.email@example.com"
           required
-          aria-describedby="email-error"
-          className={state.errors?.email ? 'border-destructive' : ''}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-        {state.errors?.email && (
-          <p id="email-error" className="text-sm text-destructive mt-1">
-            {state.errors.email.join(', ')}
-          </p>
-        )}
       </div>
 
       <div>
-        <Label htmlFor="message" className="mb-1 block">Message</Label>
+        <Label htmlFor="message" className="mb-1 block">
+          Message
+        </Label>
         <Textarea
           id="message"
           name="message"
           placeholder="Your message..."
           rows={5}
           required
-          aria-describedby="message-error"
-          className={state.errors?.message ? 'border-destructive' : ''}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
         />
-        {state.errors?.message && (
-          <p id="message-error" className="text-sm text-destructive mt-1">
-            {state.errors.message.join(', ')}
-          </p>
-        )}
       </div>
-      
-      <SubmitButton />
 
-      {state.message && !state.success && state.errors && Object.keys(state.errors).length > 0 && (
-         <p className="text-sm text-destructive mt-2 text-center">{state.message}</p>
-      )}
+      <Button type="submit" className="w-full" size="lg">
+        <Send className="mr-2 h-4 w-4" />
+        Send Message
+      </Button>
     </form>
   );
 }
