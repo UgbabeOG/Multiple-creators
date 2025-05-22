@@ -17,16 +17,12 @@ export const metadata: Metadata = {
   keywords: [
     "music video",
     "director",
-    "portfolio",
     "cinematography",
     "creative",
     "film",
     "visual storytelling",
-    "bloopers",
-    "behind the scenes",
     "art",
     "production",
-    "music",
     "video gallery",
     "multiple creators",
   ],
@@ -38,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "Multiple Creators",
     images: [
       {
-        url: "/ghost.jpg",
+        url: "/IMG_6810.jpg",
         width: 1200,
         height: 630,
         alt: "Multiple Creators Portfolio Cover",
@@ -52,7 +48,7 @@ export const metadata: Metadata = {
     title: "Multiple Creators - Music Video Director Portfolio",
     description:
       "Discover the creative world of Multiple Creators. Explore our music video gallery, behind-the-scenes, and more.",
-    images: ["/ghost.jpg"],
+    images: ["/IMG_6810.jpg"],
     creator: "@multicreators",
   },
   metadataBase: new URL("https://multiplecreators.com"),
