@@ -2,12 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Chunky Heart Bounce";
+  src: url("/fonts/CHUNKY HEART BOUNCE.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Chunky Heart Decorative";
+  src: url("/fonts/CHUNKY HEART DECORATIVE.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Chunky Heart Outline";
+  src: url("/fonts/CHUNKY HEART OUTLINE.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Chunky Heart Solid";
+  src: url("/fonts/CHUNKY HEART SOLID.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-chunky {
+  font-family: "Chunky Heart Bounce", "Chunky Heart Decorative",
+    "Chunky Heart Outline", "Chunky Heart Solid", var(--font-geist-sans), Arial,
+    Helvetica, sans-serif;
+}
 
 @layer base {
-  :root { /* Light Theme - Muted */
+  :root {
+    /* Light Theme - Muted */
     --background: 0 0% 98%; /* Slightly off-white */
     --foreground: 220 20% 25%; /* Darker gray-blue, less saturated */
 
@@ -43,7 +84,7 @@ body {
     --chart-2: 339 65% 55%; /* Muted Accent */
     --chart-3: 190 45% 55%; /* Muted Teal/Cyan */
     --chart-4: 210 35% 65%; /* Muted Light Blue */
-    --chart-5: 25 55% 65%;  /* Muted Orange */
+    --chart-5: 25 55% 65%; /* Muted Orange */
 
     /* Sidebar colors for muted light theme */
     --sidebar-background: 0 0% 96%; /* Slightly darker off-white */
@@ -56,7 +97,8 @@ body {
     --sidebar-ring: 339 65% 55%; /* Muted accent pink for ring */
   }
 
-  .dark { /* Dark Theme */
+  .dark {
+    /* Dark Theme */
     --background: 260 30% 14%; /* Dark Desaturated Purple */
     --foreground: 260 25% 85%; /* Light grayish-purple for text */
 

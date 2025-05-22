@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Send } from "lucide-react";
 
 // Your email address where you want to receive messages
-const YOUR_RECEIVING_EMAIL = "your_email_address@example.com"; // <<<< IMPORTANT: Change this
+const YOUR_RECEIVING_EMAIL = "Multiplecreatorspage@gmail.com"; // <<<< IMPORTANT: Change this
 
 export default function ContactForm() {
   const [name, setName] = useState("");

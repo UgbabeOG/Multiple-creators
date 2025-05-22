@@ -76,7 +76,7 @@ Visit `http://localhost:9002` in your browser.
 
 ## Contact
 
-- **Email:** [contact@multiplecreators.com](mailto:contact@multiplecreators.com)
+- **Email:** [Multiplecreatorspage@gmail.com](mailto:Multiplecreatorspage@gmail.com)
 - **Phone:** +1 (234) 567-890
 - **Studio:** 123 Creators Lane, Creative City, CA 90210
 

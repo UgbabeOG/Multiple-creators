@@ -56,10 +56,10 @@ export default function ContactPage() {
               <div>
                 <h3 className="font-semibold">Email</h3>
                 <a
-                  href="mailto:contact@multiplecreators.com"
+                  href="mailto:Multiplecreatorspage@gmail.com"
                   className="hover:text-accent transition-colors"
                 >
-                  contact@multiplecreators.com
+                  Multiplecreatorspage@gmail.com
                 </a>
               </div>
             </div>
@@ -68,10 +68,10 @@ export default function ContactPage() {
               <div>
                 <h3 className="font-semibold">Phone</h3>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+2349047943754"
                   className="hover:text-accent transition-colors"
                 >
-                  +1 (234) 567-890
+                  +234 904 794 3754
                 </a>
               </div>
             </div>
