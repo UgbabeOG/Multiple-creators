@@ -36,13 +36,23 @@ body {
 }
 h1,
 h2,
+.font-chunky {
+  font-family: 
+    "Chunky Heart Outline", "Chunky Heart Solid", var(--font-geist-sans), Arial,
+    Helvetica, sans-serif;
+}
+.font-deco {
+  font-family: 
+    "Chunky Heart Decorative", var(--font-geist-sans), Arial,
+    Helvetica, sans-serif;
+}
+
 h3,
 h4,
 h5,
 h6,
-.font-chunky {
-  font-family: "Chunky Heart Bounce", "Chunky Heart Decorative",
-    "Chunky Heart Outline", "Chunky Heart Solid", var(--font-geist-sans), Arial,
+.font-outline {
+  font-family:"Chunky Heart Bounce", "Chunky Heart Decorative", var(--font-geist-sans), Arial,
     Helvetica, sans-serif;
 }
 

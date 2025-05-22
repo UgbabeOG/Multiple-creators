@@ -31,7 +31,7 @@ export default function ContactPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         <Card className="shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1">
           <CardHeader>
-            <CardTitle>Contact Form</CardTitle>{" "}
+            <CardTitle className="font-chunky">Contact Form</CardTitle>{" "}
             {/* Font size handled by CardTitle component */}
             <CardDescription>
               Send us a message, and we'll get back to you shortly.
@@ -42,9 +42,9 @@ export default function ContactPage() {
           </CardContent>
         </Card>
 
-        <Card className="shadow-lg bg-card/50 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1">
+        <Card className="shadow-lg bg-card/50 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 ">
           <CardHeader>
-            <CardTitle>Direct Contact</CardTitle>{" "}
+            <CardTitle className="font-chunky">Direct Contact</CardTitle>{" "}
             {/* Font size handled by CardTitle component */}
             <CardDescription>
               You can also reach us through these channels.
@@ -89,7 +89,7 @@ export default function ContactPage() {
       {/* Social Media Section */}
       <Card className="shadow-xl  border border-accent/50 mt-8">
         <CardHeader className="text-center pb-2">
-          <CardTitle className="text-2xl font-extrabold text-primary tracking-tight">
+          <CardTitle className="text-2xl font-extrabold text-primary tracking-tight font-chunky">
             Follow Us on Social Media
           </CardTitle>
           <CardDescription className="text-base ">
