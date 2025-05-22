@@ -22,7 +22,7 @@ export default function AboutPage() {
       <Card className="shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
         <div className="md:flex">
           <div className="md:w-1/3 relative min-h-[300px] md:min-h-0">
-            <Image
+            <Image  loading="lazy"
               src="/ghost.jpg"
               alt="Team of Creators"
               layout="fill"

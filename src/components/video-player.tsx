@@ -30,7 +30,7 @@ export default function VideoPlayer({ title, videoUrl, placeholderImage, dataAiH
         src={placeholderImage}
         alt={`Placeholder for ${title}`}
         layout="fill"
-        objectFit="cover"
+        objectFit="cover"  loading="lazy"
         data-ai-hint={dataAiHint || "video content"}
       />
       <div className="absolute inset-0 flex items-center justify-center bg-black/30">

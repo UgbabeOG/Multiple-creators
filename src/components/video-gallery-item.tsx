@@ -31,7 +31,7 @@ export default function VideoGalleryItem({ video, 'data-ai-hint': dataAiHint }: 
                 layout="fill"
                 objectFit="cover"
                 className="group-hover:scale-105 transition-transform duration-300 ease-in-out"
-                data-ai-hint={dataAiHint}
+                data-ai-hint={dataAiHint}  loading="lazy"
               />
               <Link href={`/videos/${video.id}`} className="absolute inset-0">
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">

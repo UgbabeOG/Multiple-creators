@@ -96,7 +96,7 @@ export default function LandingPage() {
     <div className="flex flex-col items-center justify-center text-center space-y-12 py-8 md:py-16">
       <section className="w-full max-w-5xl">
         <div className="relative aspect-[16/7] w-full overflow-hidden rounded-xl shadow-2xl">
-          <Image
+          <Image  
             src="/IMG_3688.JPG"
             alt="Abstract background representing creative vision"
             layout="fill"
@@ -173,7 +173,7 @@ export default function LandingPage() {
                 style={{ width: `${100 / slideCount}%` }}
               >
                 <div className="relative aspect-[4/3] w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl bg-gradient-to-br from-[#211A2E] via-[#673AB7]/30 to-[#E91E63]/20 border-2 border-accent rounded-2xl overflow-hidden shadow-xl hover:scale-105 hover:shadow-2xl transition-transform duration-300">
-                  <Image
+                  <Image  
                     src={still.src}
                     alt={still.alt}
                     fill

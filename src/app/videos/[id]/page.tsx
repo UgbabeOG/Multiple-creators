@@ -87,7 +87,7 @@ export default async function VideoDetailsPage({
                 alt={`Placeholder for ${video.title}`}
                 layout="fill"
                 objectFit="cover"
-                data-ai-hint={dataAiHint}
+                data-ai-hint={dataAiHint}  loading="lazy"
               />
             </div>
           )}
