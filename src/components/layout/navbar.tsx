@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Film, Mail, Users, Home, Video, Menu as MenuIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,6 +15,7 @@ import { ThemeToggleButton } from "@/components/theme-toggle-button";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const navLinks = [
     { href: "/", label: "Home", icon: Home },
@@ -36,17 +38,25 @@ export default function Navbar() {
 
         {/* Desktop Navigation & Theme Toggle */}
         <nav className="hidden md:flex items-center gap-1 md:gap-2">
-          {navLinks.map((link) => (
-            <Button variant="ghost" asChild key={link.href}>
-              <Link
-                href={link.href}
-                className="text-foreground hover:text-accent transition-colors flex items-center gap-1 md:gap-2 px-2 sm:px-3"
-              >
-                <link.icon className="w-4 h-4" />
-                <span className="hidden sm:inline">{link.label}</span>
-              </Link>
-            </Button>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Button variant="ghost" asChild key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`text-foreground flex items-center gap-1 md:gap-2 px-2 sm:px-3 transition-colors relative hover:text-accent
+                    ${
+                      isActive
+                        ? "bg-primary/10 text-primary font-bold rounded-lg shadow-inner before:absolute before:inset-0 before:bg-primary/20 before:rounded-lg before:blur-sm before:opacity-60 before:-z-10"
+                        : ""
+                    }`}
+                >
+                  <link.icon className="w-4 h-4" />
+                  <span className="hidden sm:inline">{link.label}</span>
+                </Link>
+              </Button>
+            );
+          })}
           <ThemeToggleButton />
         </nav>
 
@@ -72,17 +82,25 @@ export default function Navbar() {
                   Multiple Creators
                 </Link>
                 <nav className="flex flex-col gap-2">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="flex items-center gap-3 p-3 rounded-md text-foreground hover:bg-accent hover:text-accent-foreground transition-colors text-base"
-                    >
-                      <link.icon className="w-5 h-5" />
-                      <span>{link.label}</span>
-                    </Link>
-                  ))}
+                  {navLinks.map((link) => {
+                    const isActive = pathname === link.href;
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`flex items-center gap-3 p-3 rounded-md text-base transition-colors relative hover:bg-accent hover:text-accent-foreground
+                          ${
+                            isActive
+                              ? "bg-primary/10 text-primary font-bold shadow-inner"
+                              : "text-foreground"
+                          }`}
+                      >
+                        <link.icon className="w-5 h-5" />
+                        <span>{link.label}</span>
+                      </Link>
+                    );
+                  })}
                 </nav>
               </div>
             </SheetContent>

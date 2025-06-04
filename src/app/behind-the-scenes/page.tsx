@@ -34,7 +34,7 @@ export default function BehindTheScenesPage() {
   return (
     <div className="space-y-12 py-8 md:py-16">
       <div className="text-center">
-        <h1 className="text-4xl sm:text-5xl font-bold text-primary tracking-tight font-chunky">
+        <h1 className="text-4xl sm:text-5xl font-bold text-primary tracking-tight font-deco">
           Behind the Scenes & Bloopers
         </h1>
         <p className="mt-2 text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -46,7 +46,7 @@ export default function BehindTheScenesPage() {
       <section>
         <Card className="bg-card/70">
           <CardHeader>
-            <CardTitle className="font-chunky text-2xl text-primary">
+            <CardTitle className="font-deco text-2xl text-primary">
               Behind the Scenes Photos
             </CardTitle>
             <CardDescription>
@@ -78,7 +78,7 @@ export default function BehindTheScenesPage() {
       <section>
         <Card className="bg-card/70 mt-12">
           <CardHeader>
-            <CardTitle className="font-chunky text-2xl text-primary">
+            <CardTitle className="font-deco text-2xl text-primary">
               Bloopers & Fun Moments
             </CardTitle>
             <CardDescription>

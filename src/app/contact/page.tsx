@@ -19,7 +19,7 @@ export default function ContactPage() {
   return (
     <div className="space-y-12">
       <div className="text-center">
-        <h1 className="text-3xl sm:text-4xl font-bold text-primary tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-bold font-deco text-primary tracking-tight">
           Get In Touch
         </h1>
         <p className="mt-2 text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -44,7 +44,7 @@ export default function ContactPage() {
 
         <Card className="shadow-lg bg-card/50 transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 ">
           <CardHeader>
-            <CardTitle className="font-chunky">Direct Contact</CardTitle>{" "}
+            <CardTitle className="font-deco">Direct Contact</CardTitle>{" "}
             {/* Font size handled by CardTitle component */}
             <CardDescription>
               You can also reach us through these channels.
@@ -54,7 +54,7 @@ export default function ContactPage() {
             <div className="flex items-center gap-4">
               <Mail className="w-6 h-6 text-accent" />
               <div>
-                <h3 className="font-semibold">Email</h3>
+                <h3 className="font-semibold font-chunky">Email</h3>
                 <a
                   href="mailto:Multiplecreatorspage@gmail.com"
                   className="hover:text-accent transition-colors"
@@ -66,7 +66,7 @@ export default function ContactPage() {
             <div className="flex items-center gap-4">
               <Phone className="w-6 h-6 text-accent" />
               <div>
-                <h3 className="font-semibold">Phone</h3>
+                <h3 className="font-semibold font-chunky">Phone</h3>
                 <a
                   href="tel:+2349047943754"
                   className="hover:text-accent transition-colors"
@@ -78,7 +78,7 @@ export default function ContactPage() {
             <div className="flex items-center gap-4">
               <MapPin className="w-6 h-6 text-accent" />
               <div>
-                <h3 className="font-semibold">Studio (By Appointment)</h3>
+                <h3 className="font-semibold font-chunky">Studio (By Appointment)</h3>
                 <p>123 Creators Lane, Creative City, CA 90210</p>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function ContactPage() {
       {/* Social Media Section */}
       <Card className="shadow-xl  border border-accent/50 mt-8">
         <CardHeader className="text-center pb-2">
-          <CardTitle className="text-2xl font-extrabold text-primary tracking-tight font-chunky">
+          <CardTitle className="text-2xl font-extrabold text-primary tracking-tight font-deco">
             Follow Us on Social Media
           </CardTitle>
           <CardDescription className="text-base ">

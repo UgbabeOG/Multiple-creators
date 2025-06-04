@@ -107,7 +107,7 @@ export default function LandingPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
           <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-primary-foreground">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight !text-white [text-shadow:_0_2px_4px_rgb(0_0_0_/_40%)] animate-in fade-in slide-in-from-top-8 duration-1000">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight !text-white [text-shadow:_0_2px_4px_rgb(0_0_0_/_40%)] animate-in fade-in slide-in-from-top-8 duration-1000 font-deco">
               Multiple Creators
             </h1>
             <p className="mt-4 text-lg sm:text-xl md:text-2xl max-w-2xl !text-white/90 [text-shadow:_0_1px_3px_rgb(0_0_0_/_30%)] animate-in fade-in slide-in-from-top-10 duration-1000 delay-200">
@@ -151,7 +151,7 @@ export default function LandingPage() {
       </section>
 
       <section className="w-full max-w-3xl pt-8">
-        <h3 className="text-xl sm:text-2xl font-semibold text-center mb-8 text-primary">
+        <h3 className="text-xl sm:text-2xl font-semibold text-center mb-8 text-primary font-deco">
           Featured Stills
         </h3>
         <div 

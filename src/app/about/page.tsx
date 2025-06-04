@@ -19,7 +19,7 @@ export default function AboutPage() {
   return (
     <div className="space-y-12">
       <div className="text-center">
-        <h1 className="text-3xl sm:text-4xl font-bold text-primary tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-bold text-primary font-deco tracking-tight">
           Meet the Creators
         </h1>
         <p className="mt-2 text-lg text-muted-foreground max-w-2xl mx-auto">
